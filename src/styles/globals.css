@@ -2,32 +2,253 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Sacramento-Regular";
+  src: url("/font/Sacramento-Regular.ttf");
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  font-family: "Sacramento-Regular", cursive;
+  background-color: rgba(0, 0, 255, 0.183);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.paper {
+  position: absolute;
+  height: 800px;
+  aspect-ratio: 1/1.5;
+  background: rgba(255, 255, 255);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 5px 0px #888;
+}
+.paper::before {
+  content: "";
+  position: absolute;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255, 0, 0, 0.4);
+}
+.lines {
+  margin-top: 60px;
+  height: calc(100% - 60px); margin-top: 60px;
+  height: calc(100% - 60px);
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    white 0px,
+    white 24px,
+    steelblue 25px
+  );
+}
+
+.text {
+  position: absolute;
+  top: 16%;
+  left: 60px;
+  font-size: 2rem;
+  color: #0008a9;
+}
+
+h1 {
+  font-size: 3rem;
+  position: absolute;
+  top: 4%;
+  left: 65px;
+  display: inline;
+  color: #a90000;
+}
+
+h1::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+  height: 2px;
+  background-color: #a90000;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 3px;
+  display: flex;
+}
+
+input {
+  background-color: transparent;
+  position: relative;
+}
+
+input:focus {
+  outline: none;
+}
+
+label::after {
+  content: " ";
+  position: absolute;
+  width: 50%;
+  height: 2px;
+  background-color: #0008a9;
+  bottom: 13px;
+  right: 1/2;
+}
+
+
+button{
+  color: rgb(26, 26, 26);
+  position: relative;
+  transform: translateY(-3px);
+  width: fit-content;
+  text-wrap: nowrap;
+}
+
+button::after{
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #232323;
+  left: 0;
+  bottom: 11px;
+}
+
+p{
+  color: rgb(72, 106, 255);
+  font-size: 1.5rem;
+  transform: translateY(3px);
+  text-decoration: underline;
+}
+
+p span{
+  font-size: 1.8rem;
+  color: #0008a9;
+}
+
+.user-details{
+  position: absolute;
+  font-size: 1.3rem;
+  top: 10px;
+  right: 10px;
+}
+
+.todo-item{
+  display: flex;
+  margin-bottom: 2px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.todo-item span{
+  font-size: 1.5rem;
+  position: absolute;
+  top: 8px;
+  transform: translateX(-45px);
+}
+
+.buttons{
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  transform: translate(60%,-43px);
+  font-size: 1.8rem;
+}
+
+.add-button{
+  color: green;
+}
+
+
+.remove-button{
+  color: rgb(128, 0, 0);
+}
+
+.todo-item::after{
+  content: " ";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #0008a9;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s;
+}
+
+.todo-item.strike::after{
+  width: 100%;
+}
+
+@media screen and (max-width: 430px){
+
+  .paper{
+    height: 600px;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  h1{
+    top: 14.3%;
+    left: 60px;
+    font-size: 2.4rem;
   }
+
+  h1::after{
+    bottom: 15px;
+  }
+
+  .text{
+    font-size: 1.5rem;
+    top: 24%;
+    left: 50px;
+  }
+
+  .lines{
+    margin-top: 100px;
+    height: calc(100% - 100px);
+  }
+
+  .input-container {
+    transform: translateY(8px);
+    margin-bottom: .9rem;
+  }
+
+  button{
+    transform: translateY(9px);
+  }
+
+  button::after{
+    bottom: 9px;
+  }
+
+  p{
+    transform: translateY(13px);
+    font-size: 1.3rem;
+  }
+
+  p span{
+    font-size: 1.5rem;
+  }
+
+  .todo-item{
+    margin-bottom: 14px;
+    transform: translateY(8px);
+  }
+  
+  .todo-item span{
+    top: 0px;
+    transform: translateX(-35px);
+  }
+
+
+.buttons{
+  display: grid;
+  gap: 5px;
+  position: absolute;
+  transform: translate(180%,-60px);
+  font-size: 1.3rem;
+}
+
+.add-button{
+  transform: translateY(20px);
+}
+  
 }
