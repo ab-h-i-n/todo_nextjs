@@ -1,8 +1,10 @@
 import Input from "@/components/Input";
 import Page from "@/components/Page";
+import Link from "next/link";
 import React from "react";
 
 const index = () => {
+
   return (
     <Page heading={'Login Form'}>
       <form>
@@ -12,7 +14,7 @@ const index = () => {
         <button type="submit">Login</button>
 
         <p>
-          Don't have an account ? <span>SignUp</span>
+          Don't have an account ? <Link href="/auth/signup"><span>SignUp</span></Link>
         </p>
       </form>
     </Page>

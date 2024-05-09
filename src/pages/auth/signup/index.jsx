@@ -1,5 +1,6 @@
 import Input from "@/components/Input";
 import Page from "@/components/Page";
+import Link from "next/link";
 import React from "react";
 
 const index = () => {
@@ -13,7 +14,7 @@ const index = () => {
         <button type="submit">SignUp</button>
 
         <p>
-          Already have an account ? <span>Login</span>
+          Already have an account ? <Link href="/auth/login"><span>Login</span></Link>
         </p>
       </form>
     </Page>

@@ -1,5 +1,6 @@
 import Input from "@/components/Input";
 import Page from "@/components/Page";
+import Link from "next/link";
 import React from "react";
 
 const index = () => {
@@ -10,7 +11,7 @@ const index = () => {
 
         <div className="flex gap-5">
           <button type="submit">Add</button>
-          <button type="button">Cancel</button>
+          <button ><Link href=" /">Cancel</Link></button>
         </div>
       </form>
     </Page>
