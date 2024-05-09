@@ -1,7 +1,7 @@
 import Input from "@/components/Input";
 import Page from "@/components/Page";
 import Link from "next/link";
-import React from "react";
+
 
 const index = () => {
   return (

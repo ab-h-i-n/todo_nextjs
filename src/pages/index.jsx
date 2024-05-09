@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+
 import Page from "@/components/Page";
 import TodoItems from "@/components/TodoItems";
 import Link from "next/link";
